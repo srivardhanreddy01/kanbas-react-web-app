@@ -1,0 +1,168 @@
+/* .wd-kanbas-navigation {
+  background-color: black;
+  list-style: none;
+  padding: 0px;  margin: 0px;
+  width: 80px;
+}
+.wd-kanbas-navigation li {
+  padding: 10px;     margin-bottom: 10px;
+  font-size: 0.8em;  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wd-kanbas-navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.wd-kanbas-navigation li a i {
+    margin-top: 5px;
+    color: red;
+    font-size: 2em;
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li.wd-active {
+  background-color: white;
+}
+.wd-kanbas-navigation li.wd-active a {
+  color: red;
+}
+
+.wd-kanbas-navigation li:not(:last-child) {
+    margin-bottom: 15px;
+}
+
+.wd-kanbas-navigation li a i,
+.wd-kanbas-navigation li a {
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li a:not(:last-child) {
+    margin-bottom: 10px; 
+}
+.wd-kanbas-navigation li a.wd-white-icon i {
+    color: white;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+/* body {
+    display: flex;
+} */
+
+
+
+.logo_image{
+    width:70px;
+}
+
+@media (max-width: 576px) {
+    .wd-kanbas-navigation {
+        display: none;
+    }
+}
+
+.wd-kanbas-navigation {
+    background-color: black;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 80px;
+    height: 1000px;
+    position: fixed;
+}
+
+.wd-kanbas-navigation li {
+    padding: 5px;
+    margin-bottom: 10px;
+    font-size: 0.8em;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wd-kanbas-navigation li a {
+    color: white;
+    text-decoration: none;
+}
+
+.wd-kanbas-navigation li.wd-active {
+    background-color: white;
+}
+
+
+.wd-kanbas-navigation li.wd-active a {
+    color: red;
+}
+
+.wd-kanbas-navigation li:not(:last-child) {
+    margin-bottom: 10px; 
+}
+
+.wd-kanbas-navigation li a:not(:last-child) {
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li a.wd-white-icon i {
+    color: white;
+    
+}
+
+ 
+.wd-kanbas-navigation li.wd-active a.wd-white-icon i {
+    color: grey;
+    background-color: white;
+  
+}
+
+.wd-kanbas-navigation li:first-child.wd-active {
+    background-color: white;
+}
+
+.wd-kanbas-navigation li:first-child.wd-active a {
+    color: red;
+}
+
+.wd-kanbas-navigation li a i.fa-home {
+    color: red; 
+}
+
+.wd-kanbas-navigation li a i,
+.wd-kanbas-navigation li a {
+    display: block;
+    margin: auto;
+}
+
+.wd-kanbas-navigation li a i {
+    margin-top: 5px;
+    color: red; 
+    font-size: 1.5em; 
+    margin-bottom: 5px;
+}
+
+.wd-kanbas-navigation li {
+    padding: 10px; 
+}
+
+.wd-kanbas-navigation li a.wd-white-icon i {
+    margin-top: 10px;
+}
