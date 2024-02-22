@@ -1,0 +1,27 @@
+.wd-courses-main .wd-icon {
+  color: rgb(172, 23, 23);
+  font-size: 1.8em;
+  margin-right: 5px;
+}
+
+.wd-course-main {
+  margin: 10px;
+}
+
+.glasses-icon {
+  padding-left: 1150px;
+}
+
+.wd-courses-main nav .breadcrumb-item {
+  --bs-breadcrumb-divider: ">";
+}
+
+.wd-courses-main nav .breadcrumb-item.active {
+  padding-left: 10px;
+  padding-top: 1px;
+  padding-bottom: 0px;
+}
+
+.wd-courses-main span.red-color {
+  color: rgb(172, 23, 23);
+}
