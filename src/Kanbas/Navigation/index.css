@@ -11,6 +11,7 @@
 .widget-nav a.active {
   background-color: #fff;
   color: rgb(185, 30, 30);
+  z-index: 0;
 }
 
 .widget-nav {

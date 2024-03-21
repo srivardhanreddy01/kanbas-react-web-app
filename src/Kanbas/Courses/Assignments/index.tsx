@@ -1,13 +1,46 @@
-import React from "react";
+import React, { useState } from "react";
+
 import { Link, useParams } from "react-router-dom";
-import { assignments } from "../../Database";
+import { KanbasState } from "../../store";
+import { useSelector, useDispatch } from "react-redux";
+import { deleteAssignment } from "./assignmentsReducer";
 import "./index1.css";
+import { AiFillDelete } from "react-icons/ai";
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignmentList = assignments.filter(
-    (assignment) => assignment.course === courseId
-  );
+  const [Assign_Chosen_ID, Boolean_Assign_Chosen_ID] = useState(null);
+  const [Assign_Chosen_Title, Boolean_Assign_Chosen_Title] = useState("");
+  const [display, flag_display] = useState(false);
+
+  const openAlert = () => {
+    const modal = document.getElementById("myModal");
+    if (modal) modal.style.display = "block";
+  };
+
+  const closeAlert = () => {
+    const modal = document.getElementById("myModal");
+    if (modal) modal.style.display = "none";
+  };
+
+  const activateModal = (
+    course_ID_Value: React.SetStateAction<null>,
+    course_Title_Value: React.SetStateAction<string>
+  ) => { 
+    openAlert();
+    // flag_display(true);
+    Boolean_Assign_Chosen_ID(course_ID_Value);
+    Boolean_Assign_Chosen_Title(course_Title_Value);
+  };
+  const dispatch = useDispatch();
+  const courseAssignments = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignments
+  ).filter((assignment: { course: string }) => assignment.course === courseId);
+  const dismissModal = () => {
+    flag_display(false);
+  };
+
+  console.log(Assign_Chosen_ID);
   return (
     <>
       <link
@@ -22,8 +55,8 @@ function Assignments() {
         href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
         rel="stylesheet"
       />
-      <div className="top-buttons-class">
-        <div className="wd-title-class">
+      <div className="top-buttons-className">
+        <div className="wd-title-className">
           <div className="input-group float-start  mb-3 mr-5 w-25">
             <input
               type="text"
@@ -37,10 +70,12 @@ function Assignments() {
               <i className="fa-solid fa-plus"></i>
               Group
             </button>
-            <button type="button" className="btn btn-danger ms-2">
-              <i className="fa-solid fa-plus"></i>
-              Assignment
-            </button>
+            <Link to={`/Kanbas/Courses/${courseId}/Assignments/NewAssignment`}>
+              <button type="button" className="btn btn-danger ms-2">
+                <i className="fa-solid fa-plus"></i>
+                Assignment
+              </button>
+            </Link>
             <button type="button" className="btn btn-light ms-3">
               <i className="fa-solid fa-ellipsis-vertical"></i>
             </button>
@@ -78,7 +113,7 @@ function Assignments() {
               </div>
             </li>
             <ul className="list-group">
-              {assignmentList.map((assignment) => (
+              {courseAssignments.map((assignment) => (
                 <li className="list-group-item border-design">
                   <div className="row">
                     <div className="col-1 mt-4">
@@ -114,6 +149,12 @@ function Assignments() {
                           }}
                         ></i>
                         <i className="fa-solid fa-ellipsis-vertical"></i>
+                        <AiFillDelete
+                          className="fs-4"
+                          onClick={() =>
+                            activateModal(assignment._id, assignment.title)
+                          }
+                        />
                       </div>
                     </div>
                   </div>
@@ -121,6 +162,66 @@ function Assignments() {
               ))}
             </ul>
           </ul>
+
+          <div id="myModal" className="modal">
+            <div
+              className="modal-content"
+              style={{ width: "800px", position: "relative" }}
+            >
+              <span className="close" onClick={closeAlert}>
+                &times;
+              </span>
+              <h2>Assignment Deletion Confirmation</h2>
+              
+              <p>Do you want to delete the Assignment :<b>{Assign_Chosen_Title}</b>
+              ?</p>
+
+              <div>
+                <button
+                  className="btn btn-success"
+                  onClick={() => {
+                    closeAlert();
+                    dispatch(deleteAssignment(Assign_Chosen_ID));
+                  }}
+                >
+                  Confirm Deletion
+                </button>
+                <button
+                  className="btn btn-danger"
+                  style={{ margin: "20px" }}
+                  onClick={() => {
+                    closeAlert();
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* <Modal show={display} onHide={dismissModal}>
+            <Modal.Header closeButton>
+              <Modal.Title>Assignment Deletion Confirmation</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              Do you want to delete the Assignment :<b>{Assign_Chosen_Title}</b>
+              ?
+            </Modal.Body>
+            <Modal.Footer>
+              <Button className="btn btn-secondary" onClick={dismissModal}>
+                Close Dialog
+              </Button>
+              <Button
+                className="btn btn-danger"
+                onClick={() => {
+                  dismissModal();
+                  dispatch(deleteAssignment(Assign_Chosen_ID));
+                }}
+              >
+                Confirm Deletion
+              </Button>
+            </Modal.Footer>
+          </Modal> */}
         </div>
       </div>
     </>

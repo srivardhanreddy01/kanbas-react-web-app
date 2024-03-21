@@ -8,6 +8,7 @@
   border-left: 2px solid black;
   color: black;
   background-color: white;
+  z-index: 0;
 }
 
 .wd-course-navigation .list-group-item {
