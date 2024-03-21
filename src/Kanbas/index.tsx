@@ -62,11 +62,12 @@ function Kanbas() {
               element={
                 <Dashboard
                   courses={course}
-                  course={coursea}
+                  course={{ ...coursea, image: getRandomImage() }}
                   setCourse={setCoursea}
                   addNewCourse={addNewCourse}
                   deleteCourse={deleteCourse}
                   updateCourse={updateCourse}
+                  
                 />
               }
             />

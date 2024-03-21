@@ -13,6 +13,7 @@ function Assignments() {
   const [Assign_Chosen_Title, Boolean_Assign_Chosen_Title] = useState("");
   const [display, flag_display] = useState(false);
 
+
   const openAlert = () => {
     const modal = document.getElementById("myModal");
     if (modal) modal.style.display = "block";
@@ -40,6 +41,7 @@ function Assignments() {
     flag_display(false);
   };
 
+  console.log(courseAssignments)
   console.log(Assign_Chosen_ID);
   return (
     <>
@@ -130,12 +132,12 @@ function Assignments() {
                       <Link
                         to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                       >
-                        {assignment.title}
+                        {assignment.title} 
                       </Link>
                       <p>
-                        Week 0 - SETUP - Week starting on Monday, September 5th
-                        (9/5/2022) Module |<br />
-                        <b>Due</b> Sept 18, 2022 at 11:59 pm | 100 pts
+                        {assignment.description}
+                        <p>Week 0 - SETUP - Week starting on Monday, September 5th (9/5/2022) Module <br/>
+                        <b>Due</b> Sept 18, 2022 at 11:59 pm | 100 pts</p>
                       </p>
                     </div>
                     <div className="col-1 col-auto">

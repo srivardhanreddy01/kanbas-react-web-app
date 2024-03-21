@@ -6,10 +6,14 @@ import { FaFilePen } from "react-icons/fa6";
 
 function Dashboard( {
   courses, course, setCourse, addNewCourse,
-    deleteCourse, updateCourse }: {
+    deleteCourse, updateCourse}: {
     courses: any[]; course: any; setCourse: (course: any) => void;
     addNewCourse: () => void; deleteCourse: (course: any) => void;
     updateCourse: () => void; })
+
+
+   
+
 
   {
     console.log(courses)
